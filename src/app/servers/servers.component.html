@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a href="servers" class="list-group-item" *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+
+    <!-- relative path - the path is appended to root path (i.e the main component e.g now path is servers/servers which is no exist )  -->
+    <!-- <a routerLink="servers">Router Link</a>  -->
+
+    <!-- same as above -->
+    <!-- <a routerLink="./servers">Router Link</a>  -->
+
+    <!-- now it will acces the 'servers' only not servers/servers  -->
+    <a routerLink="../servers">Router Link</a>
+
+    <!-- absolute path - here by adding a /, a new routerlink refering to the path is opened (e.g servers which is already defined in the router paths will be opened)    -->
+    <!-- p.s : we can hoverover the links and cen see the links at the end of the page below -->
+
+    <!-- this will give error as server1 is not in the Routes  -->
+    <!-- <a routerLink="/servers">Router Link</a>  -->
+
+    <!-- this will give error as server1 is not in the Routes  -->
+    <!-- <a routerLink="/servers1">Router Link</a>  -->
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server>
+  </div>
+</div>
