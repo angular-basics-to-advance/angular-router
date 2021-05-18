@@ -14,9 +14,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { from } from 'rxjs';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UserComponent },  //here the colon informs the angular that the path is dynamically updated.
   { path: 'servers', component: ServersComponent },
+  { path: 'servers/:id/edit', component: EditServerComponent },
 ];
 
 @NgModule({
