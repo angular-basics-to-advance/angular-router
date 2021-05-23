@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'page-not-found', component: PageNotFoundComponent },   //this is the way to handle the erro when the component doesn't exist that we wrote in the url and it can be avoided by redirecting.
-  { path: '**', redirectTo: 'page-not-found' }
+  { path: '**', redirectTo: 'page-not-found' }  //"**" :double asterisk ,this is wildcard route which means catch all paths
 ];
 
 @NgModule({
