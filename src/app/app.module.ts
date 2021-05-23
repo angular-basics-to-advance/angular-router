@@ -12,6 +12,7 @@ import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { from } from 'rxjs';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,11 +23,13 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: 'servers', component: ServersComponent, children: [
+    path: 'servers', component: ServersComponent, children: [    //child(nested) routing
       { path: ':id', component: ServerComponent },
       { path: ':id/edit', component: EditServerComponent }
     ]
   },
+  { path: 'page-not-found', component: PageNotFoundComponent },   //this is the way to handle the erro when the component doesn't exist that we wrote in the url and it can be avoided by redirecting.
+  { path: '**', redirectTo: 'page-not-found' }
 ];
 
 @NgModule({
@@ -37,7 +40,8 @@ const appRoutes: Routes = [
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
